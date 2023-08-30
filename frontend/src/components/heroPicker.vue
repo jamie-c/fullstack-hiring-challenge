@@ -1,6 +1,7 @@
 <template>
 	<div class="relative">
-		<span
+		<button
+			type="button"
 			class="
 				block
 				w-32
@@ -18,11 +19,14 @@
 				focus-visible:ring-opacity-75
 				cursor-pointer
 			"
+			v-bind:aria-expanded="isOpen"
+			v-bind:aria-haspopup="true"
+			v-bind:aria-controls="isOpen ? 'hero-menu' : null"
 			v-on:click="toggleMenu"
 		>
 			<span v-if="!value">Select a Hero</span>
 			<span v-else v-text="`Selected: ${value?.name}`"></span>
-		</span>
+		</button>
 		<ul
 			v-show="isOpen"
 			class="
@@ -68,6 +72,7 @@
 import type { PropType } from 'vue';
 import { ref } from 'vue';
 import type { Hero } from '../types';
+
 const props = defineProps({
 	value: Object as PropType<Hero | null>,
 	options: Array as PropType<Hero[]>,
