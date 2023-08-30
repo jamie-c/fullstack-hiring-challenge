@@ -85,28 +85,36 @@ function handleUpdate(input) {
 				BONUS {{ bonus > 0 ? `(${bonus})` : '' }} ✨
 			</button>
 		</div>
-		<div v-if="hero" class="bg-slate-400 text-black rounded flex gap-2">
-			<img v-bind:src="hero.avatar" class="w-52 h-52 object-cover object-center rounded-l">
-			<div>
-				<h2 class="uppercase text-xs mb-4">
+		<div v-if="hero" class="bg-slate-400 text-black rounded flex flex-col sm:flex-row">
+			<img v-bind:src="hero.avatar" class="w-full sm:w-52 h-52 object-cover object-center rounded-t sm:rounded-l sm:rounded-tr-none">
+			<div class="w-full px-4 sm:px-2">
+				<h2 class="uppercase text-xs text-center my-2">
 					Hero Summary
 				</h2>
-				<p>
+				<p class="text-lg mb-2">
 					<span v-text="hero.name"></span>
 				</p>
-				<dl>
+				<dl class="grid grid-flow-row grid-cols-2 w-full px-4 sm:px-0 pb-4">
 					<dt class="uppercase text-sm">
 						Speed:
 					</dt>
-					<dd v-text="hero.speed + bonus"></dd>
+					<dd class="text-right" v-text="hero.speed"></dd>
 					<dt class="uppercase text-sm">
 						Strength:
 					</dt>
-					<dd v-text="hero.strength + bonus"></dd>
+					<dd class="text-right" v-text="hero.strength"></dd>
 					<dt class="uppercase text-sm">
 						Intelligence:
 					</dt>
-					<dd v-text="hero.intelligence + bonus"></dd>
+					<dd class="text-right" v-text="hero.intelligence"></dd>
+					<dt class="uppercase text-sm">
+						Bonus:
+					</dt>
+					<dd class="text-right" v-text="bonus"></dd>
+					<dt class="uppercase text-sm">
+						Total:
+					</dt>
+					<dd class="text-right" v-text="hero.speed + hero.strength + hero.intelligence + bonus"></dd>
 				</dl>
 			</div>
 		</div>
