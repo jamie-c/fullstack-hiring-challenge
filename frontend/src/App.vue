@@ -87,31 +87,59 @@ function handleUpdate(input) {
 		</div>
 		<div v-if="hero" class="bg-slate-400 text-black rounded flex flex-col sm:flex-row">
 			<img v-bind:src="hero.avatar" class="w-full sm:w-52 h-52 object-cover object-center rounded-t sm:rounded-l sm:rounded-tr-none">
-			<div class="w-full px-4 sm:px-2">
-				<h2 class="uppercase text-xs text-center my-2">
-					Hero Summary
-				</h2>
+			<div class="relative w-full pl-4 sm:pl-2">
+				<span class="relative w-full h-8 flex flex-row justify-between">
+					<h2 class="uppercase text-xs text-center sm:text-left my-2">
+						Hero Summary
+					</h2>
+					<!-- button to clear hero -->
+					<button
+						type="button"
+						class="
+						w-6
+						h-6
+						flex
+						items-center
+						justify-center
+						top-0
+						right-0
+						text-sm
+						p-4
+						rounded-bl
+						rounded-tl-none
+						rounded-br-none
+						sm:rounded-tr
+						text-slate-700
+						bg-slate-500
+						hover:bg-slate-700
+						hover:text-slate-400
+					"
+						v-on:click="handleUpdate(null)"
+					>
+						X
+					</button>
+				</span>
 				<p class="text-lg mb-2">
 					<span v-text="hero.name"></span>
 				</p>
-				<dl class="grid grid-flow-row grid-cols-2 w-full px-4 sm:px-0 pb-4">
-					<dt class="uppercase text-sm">
+				<dl class="grid grid-flow-row grid-cols-2 w-full px-6 sm:pl-0 sm:pr-2 pb-4">
+					<dt class="uppercase text-sm overflow-auto sm:overflow-visible">
 						Speed:
 					</dt>
 					<dd class="text-right" v-text="hero.speed"></dd>
-					<dt class="uppercase text-sm">
+					<dt class="uppercase text-sm overflow-auto sm:overflow-visible">
 						Strength:
 					</dt>
 					<dd class="text-right" v-text="hero.strength"></dd>
-					<dt class="uppercase text-sm">
+					<dt class="uppercase text-sm overflow-auto sm:overflow-visible">
 						Intelligence:
 					</dt>
 					<dd class="text-right" v-text="hero.intelligence"></dd>
-					<dt class="uppercase text-sm">
+					<dt class="uppercase text-sm overflow-auto sm:overflow-visible">
 						Bonus:
 					</dt>
 					<dd class="text-right" v-text="bonus"></dd>
-					<dt class="uppercase text-sm">
+					<dt class="uppercase text-sm overflow-auto sm:overflow-visible">
 						Total:
 					</dt>
 					<dd class="text-right" v-text="hero.speed + hero.strength + hero.intelligence + bonus"></dd>
