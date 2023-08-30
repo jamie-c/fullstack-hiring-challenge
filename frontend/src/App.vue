@@ -14,21 +14,21 @@ const heros = ref<Hero[]>([
 		avatar: AchillesAvatar,
 		speed: 10,
 		strength: 4,
-		intelligence: '6',
+		intelligence: 6,
 	},
 	{
 		name: 'Odysseus',
 		avatar: OdysseusAvatar,
 		speed: 6,
 		strength: 5,
-		intelligence: '9',
+		intelligence: 9,
 	},
 	{
 		name: 'Hercules',
 		avatar: HerculesAvatar,
 		speed: 6,
 		strength: 10,
-		intelligence: '4',
+		intelligence: 4,
 	},
 ]);
 const hero = ref<Hero | null>(null);
