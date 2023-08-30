@@ -16,6 +16,7 @@
 				focus-visible:ring
 				focus-visible:ring-indigo-500
 				focus-visible:ring-opacity-75
+				cursor-pointer
 			"
 			v-on:click="toggleMenu"
 		>
@@ -64,9 +65,9 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue';
-import type {PropType} from 'vue';
-import type {Hero} from '../types';
+import type { PropType } from 'vue';
+import { ref } from 'vue';
+import type { Hero } from '../types';
 const props = defineProps({
 	value: Object as PropType<Hero | null>,
 	options: Array as PropType<Hero[]>,
