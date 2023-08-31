@@ -68,14 +68,20 @@
 	</div>
 </template>
 
-<script setup lang="ts">
+<script setup lang='ts'>
 import type { PropType } from 'vue';
 import { ref } from 'vue';
 import type { Hero } from '../types';
 
 const props = defineProps({
-	value: Object as PropType<Hero | null>,
-	options: Array as PropType<Hero[]>,
+	value: {
+		type: Object as PropType<Hero | null>,
+		default: null,
+	},
+	options: {
+		type: Array as PropType<Hero[]>,
+		default: () => [],
+	},
 });
 
 const emit = defineEmits(['selected']);
@@ -87,7 +93,7 @@ function toggleMenu() {
 
 function setOption(input) {
 	toggleMenu();
-	props.value = input;
+props.value = input;
 	emit('selected', input);
 }
 </script>
