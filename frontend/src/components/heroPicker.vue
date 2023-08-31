@@ -93,7 +93,6 @@ function toggleMenu() {
 
 function setOption(input) {
 	toggleMenu();
-props.value = input;
 	emit('selected', input);
 }
 </script>
