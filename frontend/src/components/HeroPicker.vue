@@ -11,7 +11,7 @@
 				font-medium
 				text-white
 				bg-indigo-600
-				rounded-lg
+				rounded
 				hover:bg-indigo-700
 				focus:outline-none
 				focus-visible:ring
@@ -37,12 +37,13 @@
 				mt-2
 				origin-top-right
 				bg-slate-800
-				border border-slate-500
-				rounded-md
+				border 
+				border-slate-500
+				rounded
 				shadow-lg
 			"
 		>
-			<li v-for="option in options" v-bind:key="option.name" class="py-1">
+			<li v-for="option in options" v-bind:key="option.name">
 				<a
 					href="#"
 					class="
@@ -77,10 +78,12 @@ const props = defineProps({
 	value: {
 		type: Object as PropType<Hero | null>,
 		default: null,
+		required: true,
 	},
 	options: {
 		type: Array as PropType<Hero[]>,
 		default: () => [],
+		required: true,
 	},
 });
 
@@ -91,8 +94,11 @@ function toggleMenu() {
 	isOpen.value = !isOpen.value;
 }
 
-function setOption(input) {
+function setOption(input: Hero) {
 	toggleMenu();
 	emit('selected', input);
 }
+
+
+
 </script>

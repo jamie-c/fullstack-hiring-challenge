@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { ref } from 'vue';
 
-import heroPicker from './components/heroPicker.vue';
+import HeroPicker from './components/HeroPicker.vue';
 import type { Hero } from './types';
 
 const HerculesAvatar = '/heros/hercules.png';
@@ -63,12 +63,12 @@ function handleUpdate(input) {
 	>
 		<h1>Hero Stats:</h1>
 		<div class="flex gap-4">
-			<heroPicker
+			<HeroPicker
 				class="grow"
 				v-bind:value="hero"
 				v-bind:options="heros"
 				v-on:selected="handleUpdate"
-			></heroPicker>
+			></HeroPicker>
 			<button
 				type="button"
 				class="
