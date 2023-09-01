@@ -56,6 +56,7 @@
 						gap-2
 					"
 					v-on:click="setOption(option)"
+					v-on:keyup.space="setOption(option)"
 				>
 					<img
 						v-bind:src="option.avatar"
