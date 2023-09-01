@@ -45,6 +45,11 @@ function handleUpdate(input) {
 	console.log('change', input);
 	hero.value = input;
 }
+
+function resetState() {
+	hero.value = null;
+	bonus.value = 0;
+}
 </script>
 
 <template>
@@ -65,15 +70,17 @@ function handleUpdate(input) {
 			<h1>Hero Stats:</h1>
 			<button
 			type="button"
-			v-if="bonus > 0"
+			v-if="hero || bonus > 0"
 			class="
 				hover:border-red-500
 				text-sm 
 				text-red-400
 				pl-4
 			"
-			v-on:click="bonus = 0"	
-			>reset bonus</button>
+			v-on:click="resetState"	
+			>
+				clear Hero
+			</button>
 		</span>
 		<div class="flex gap-4">
 			<HeroPicker
@@ -84,6 +91,7 @@ function handleUpdate(input) {
 			></HeroPicker>
 			<button
 				type="button"
+				:disabled="!hero"
 				class="
 					border-green-500
 					text-sm text-green-400
@@ -92,6 +100,9 @@ function handleUpdate(input) {
 					px-4
 					py-2
 					rounded
+					disabled:border-green-700
+					disabled:text-green-700
+					disabled:cursor-not-allowed
 				"
 				v-on:click="doBonus"
 			>
