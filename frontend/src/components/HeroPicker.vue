@@ -71,7 +71,7 @@
 
 <script setup lang='ts'>
 import type { PropType } from 'vue';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import type { Hero } from '../types';
 
 const props = defineProps({
@@ -99,6 +99,10 @@ function setOption(input: Hero) {
 	emit('selected', input);
 }
 
-
+watch(props, (newProps) => {
+	if(!newProps.value) {
+		isOpen.value = false;
+	}
+});
 
 </script>
