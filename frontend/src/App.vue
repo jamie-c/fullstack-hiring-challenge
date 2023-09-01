@@ -86,7 +86,7 @@ function handleUpdate(input) {
 			</button>
 		</div>
 		<div v-if="hero" class="bg-slate-400 text-black rounded flex flex-col sm:flex-row">
-			<img v-bind:src="hero.avatar" class="w-full sm:w-52 h-52 object-cover object-center rounded-t sm:rounded-l sm:rounded-tr-none">
+			<img v-bind:src="hero.avatar" class="w-full sm:w-[200px] h-52 object-cover object-center rounded-t sm:rounded-l sm:rounded-tr-none">
 			<div class="relative w-full pl-4 sm:pl-2">
 				<span class="relative flex h-8 w-full flex-row justify-between">
 					<h2 class="my-2 text-center text-xs uppercase sm:text-left">
