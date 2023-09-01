@@ -32,8 +32,8 @@ const heros = ref<Hero[]>([
 	},
 ]);
 const hero = ref<Hero | null>(null);
-
 const bonus = ref(0);
+
 function doBonus() {
 	if(bonus.value >= 5) {
 		return alert('Only 5 bonus allowed!');
@@ -61,7 +61,20 @@ function handleUpdate(input) {
 			p-4
 		"
 	>
-		<h1>Hero Stats:</h1>
+		<span class="flex flex-row w-full justify-between items-baseline">
+			<h1>Hero Stats:</h1>
+			<button
+			type="button"
+			v-if="bonus > 0"
+			class="
+				hover:border-red-500
+				text-sm 
+				text-red-400
+				pl-4
+			"
+			v-on:click="bonus = 0"	
+			>reset bonus</button>
+		</span>
 		<div class="flex gap-4">
 			<HeroPicker
 				class="grow"
@@ -85,9 +98,9 @@ function handleUpdate(input) {
 				BONUS {{ bonus > 0 ? `(${bonus})` : "" }} ✨
 			</button>
 		</div>
-		<div v-if="hero" class="bg-slate-400 text-black rounded flex flex-col sm:flex-row">
-			<img v-bind:src="hero.avatar" class="w-full sm:w-[200px] h-52 object-cover object-center rounded-t sm:rounded-l sm:rounded-tr-none">
-			<div class="relative w-full pl-4 sm:pl-2">
+		<div v-if="hero" class="bg-slate-400 text-black rounded flex flex-row">
+			<img v-bind:src="hero.avatar" class="w-[200px] h-52 object-cover object-center rounded-l">
+			<div class="relative w-full pl-2">
 				<span class="relative flex h-8 w-full flex-row justify-between">
 					<h2 class="my-2 text-center text-xs uppercase sm:text-left">
 						Hero Summary
@@ -108,7 +121,7 @@ function handleUpdate(input) {
 						rounded-bl
 						rounded-tl-none
 						rounded-br-none
-						sm:rounded-tr
+						rounded-tr
 						text-slate-700
 						bg-slate-500
 						hover:bg-slate-700
@@ -123,25 +136,25 @@ function handleUpdate(input) {
 					<span v-text="hero.name"></span>
 				</p>
 				<dl
-					class="grid w-full grid-flow-row grid-cols-2 px-6 pb-4 sm:pl-0 sm:pr-2"
+					class="grid w-full grid-flow-row grid-cols-2 px-6 pb-4 pl-0 pr-2"
 				>
-					<dt class="overflow-auto text-sm uppercase sm:overflow-visible">
+					<dt class="text-sm uppercase overflow-visible">
 						Speed:
 					</dt>
 					<dd class="text-right" v-text="hero.speed"></dd>
-					<dt class="overflow-auto text-sm uppercase sm:overflow-visible">
+					<dt class="text-sm uppercase overflow-visible">
 						Strength:
 					</dt>
 					<dd class="text-right" v-text="hero.strength"></dd>
-					<dt class="overflow-auto text-sm uppercase sm:overflow-visible">
+					<dt class="text-sm uppercase overflow-visible">
 						Intelligence:
 					</dt>
 					<dd class="text-right" v-text="hero.intelligence"></dd>
-					<dt class="overflow-auto text-sm uppercase sm:overflow-visible">
+					<dt class="text-sm uppercase overflow-visible">
 						Bonus:
 					</dt>
 					<dd class="text-right" v-text="bonus"></dd>
-					<dt class="overflow-auto text-sm uppercase sm:overflow-visible">
+					<dt class="text-sm uppercase overflow-visible">
 						Total:
 					</dt>
 					<dd
