@@ -7,12 +7,7 @@ export const onRequestGet: PagesFunction = async (context) => {
 		maxUsers = Number.parseInt(url.searchParams.get('maxUsers') as string);
 	}
 
-	// loop and get users
-	const users = [];
-	for(let i = 0; i < maxUsers; i++) {
-		const userRes = await fetch('https://randomuser.me/api/');
-		const user = await userRes.json<any>();
-		users.push(user.results[0]);
-	}
-	return Response.json(users);
+	const userRes = await fetch(`https://randomuser.me/api/?results=${maxUsers}`);
+	const {results} = await userRes.json<any>();
+	return Response.json(results);
 };
