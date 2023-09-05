@@ -26,7 +26,7 @@ Please complete at least 2 of these challenges.
   - How can we make this work with JavaScript disabled? Think about server-side rendering and progressive enhancement. Please demonstrate a solution.
   - Keep in mind developer experience and ease of use for other team members working on this project. A modern framework would be an example solution.
 
-- [ ] Add a new feature that returns a deterministic list of users, based on a `seed` query param. Currently, 10 (or a specified number) of random users are always returned.
+- [x] Add a new feature that returns a deterministic list of users, based on a `seed` query param. Currently, 10 (or a specified number) of random users are always returned.
   - **Note: Please do not use the `seed` functionality built into randomuser.me. Think about another way to do this within a Cloudflare Worker.**
   - Update the backend to accept a `seed` query param, and use that to generate and store a random user list.
   - Update the frontend to send that `seed` query param via a textbox.
