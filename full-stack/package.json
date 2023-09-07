@@ -1,44 +1,31 @@
 {
-	"name": "fullstack-hiring-challenge",
-	"version": "1.0.0",
-	"private": true,
-	"description": "Fullstack hiring challenge",
-	"homepage": "https://github.com/nodecraft/fullstack-hiring-challenge#readme",
-	"bugs": {
-		"url": "https://github.com/nodecraft/fullstack-hiring-challenge/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/nodecraft/fullstack-hiring-challenge.git"
-	},
-	"license": "UNLICENSED",
-	"author": "Nodecraft, Inc.",
-	"type": "module",
-	"main": "src/worker.ts",
-	"scripts": {
-		"check-types": "npm run check-types:server",
-		"check-types:server": "tsc --noemit",
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
 		"deploy": "wrangler pages deploy public",
-		"dev": "wrangler pages dev public --compatibility-date=2023-07-18",
-		"lint": "npm run lint:js && npm run check-types",
-		"lint:js": "eslint \"**/*.{js,ts}\" \"**/*.json\"",
-		"lint:js:fix": "npm run lint:js -- --fix"
-	},
-	"devDependencies": {
-		"@cloudflare/workers-types": "4.20230717.0",
-		"@nodecraft/eslint-config": "27.0.0",
-		"@typescript-eslint/eslint-plugin": "6.1.0",
-		"@typescript-eslint/parser": "6.1.0",
-		"eslint": "8.45.0",
-		"eslint-plugin-import": "2.27.5",
-		"eslint-plugin-json": "3.1.0",
-		"eslint-plugin-node": "11.1.0",
-		"eslint-plugin-unicorn": "48.0.0",
-		"typescript": "5.1.6",
-		"wrangler": "3.3.0"
-	},
-	"engines": {
-		"node": ">=18",
-		"npm": ">=8"
-	}
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20230904.0",
+    "@nodecraft/eslint-config": "27.0.0",
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "6.8.0",
+    "@typescript-eslint/eslint-plugin": "6.1.0",
+    "@typescript-eslint/parser": "6.1.0",
+    "eslint": "8.45.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-json": "3.1.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-unicorn": "48.0.0",
+    "nuxt": "^3.7.1",
+    "typescript": "5.1.6",
+    "wrangler": "3.3.0"
+  },
+  "dependencies": {
+    "autoprefixer": "10.4.15"
+  }
 }
