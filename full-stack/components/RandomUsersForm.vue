@@ -90,7 +90,7 @@ const getUsers = async () => {
 
 <template>
 	<form
-		class="max-w-xl mx-auto flex flex-col justify-center items-center gap-8 mt-16"
+		class="max-w-xl m-4 sm:mx-auto flex flex-col justify-center items-center gap-8 mt-16"
 		@submit.prevent="getUsers"
 	>
 		<div class="relative w-full">
