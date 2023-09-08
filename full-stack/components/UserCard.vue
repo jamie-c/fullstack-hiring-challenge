@@ -9,9 +9,6 @@ const props = defineProps({
 		required: true,
 	},
 });
-
-const { first, last } = props.user?.name || {};
-const { city, state, country } = props.user?.location || {};
 </script>
 
 <template>
@@ -20,10 +17,11 @@ const { city, state, country } = props.user?.location || {};
 	>
 		<span class="flex flex-row gap-4 items-start">
 			<img :src="user?.picture.thumbnail" />
-			<div>{{ first }} {{ last }}</div>
+			<div>{{ user?.name.first }} {{ user?.name.last }}</div>
 		</span>
 		<div class="absolute bottom-2 right-4 text-sm text-gray-500 text-right">
-			{{ city }}, {{ state }}, {{ country }}
+			{{ user?.location.city }}, {{ user?.location.state }},
+			{{ user?.location.country }}
 		</div>
 	</div>
 </template>
