@@ -130,7 +130,7 @@ const getUsers = async () => {
 			<pre v-else-if="fetchError">{{ error }}</pre>
 			<ul v-else class="w-full text-left flex flex-col gap-4">
 				<li v-for="(user, index) in users" :key="index">
-					<UserCard v-if="userCardIsShown" :key="index + 'card'" :user="user" />
+					<UserCard :key="index + 'card'" :user="user" />
 				</li>
 			</ul>
 		</div>
