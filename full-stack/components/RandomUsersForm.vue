@@ -59,10 +59,6 @@ const getUsers = async () => {
 	};
 
 	headerOptions.value = options;
-	console.log(
-		"🚀 ~ file: RandomUsersForm.vue:63 ~ getUsers ~ headerOptions.value:",
-		{ ...headerOptions.value }
-	);
 
 	const { data, pending, error }: RandomUsersResponse = await useFetch(
 		() => "https://worker-tiny-hill-2f91.jamie-078.workers.dev/",
@@ -132,9 +128,9 @@ const getUsers = async () => {
 		<div class="w-full text-xl mx-auto mt-8">
 			<p v-if="isPending">Fetching...</p>
 			<pre v-else-if="fetchError">{{ error }}</pre>
-			<ul v-else class="w-full text-left">
+			<ul v-else class="w-full text-left flex flex-col gap-4">
 				<li v-for="(user, index) in users" :key="index">
-					{{ user.name.first }} {{ user.name.last }}
+					<UserCard v-if="userCardIsShown" :key="index + 'card'" :user="user" />
 				</li>
 			</ul>
 		</div>
