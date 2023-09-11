@@ -1,0 +1,12 @@
+name = "worker-tiny-hill-2f91"
+main = "src/index.ts"
+compatibility_date = "2023-09-01"
+usage_model = "bundled"
+env = { }
+
+[triggers]
+crons = [ ]
+
+[[kv_namespaces]]
+id = "0031f648be664cae9b3f5a46e0ebbfaa"
+binding = "SEED"
