@@ -36,7 +36,7 @@ Please complete at least 2 of these challenges.
 
 When ready, run `npm run deploy` to deploy your project to Cloudflare Pages. This uses `wrangler pages publish`. This will return a URL where you can view your project and submit to us, such as:
 
-```
+
 ✨ Deployment complete! Take a peek over at [full-stack-test.pages.dev/](https://full-stack-test.pages.dev/)
 compare to the 'create-nuxt' branch deployment here: [fullstack-hiring-challenge-d6s.pages.dev/](https://fullstack-hiring-challenge-d6s.pages.dev/)
-```
+
